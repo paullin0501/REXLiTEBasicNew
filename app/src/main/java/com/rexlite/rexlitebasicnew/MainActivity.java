@@ -19,6 +19,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -79,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         setSupportActionBar(toolbar);
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
         getSupportActionBar().setDisplayShowTitleEnabled(false); //關閉toolbar的標題文字
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawer = findViewById(R.id.drawer_layout);
@@ -88,6 +88,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
+      /*  Button fab = findViewById(R.id.add_device);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,AddActivity.class);
+                startActivity(intent);
+            }
+        });*/
         //判斷登入
         if(!logon){
             Intent intent = new Intent(this,LoginActivity.class);
@@ -123,20 +131,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Log.d(TAG, "onNavigationItemSelected: ");
                 break;
             case R.id.action_device_search:
+                Toast.makeText(this,"device_search",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_device_rescan:
+                Toast.makeText(this,"device_rescan",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_list_device_id:
+                Toast.makeText(this,"list_device_id",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_reset_maxscene:
+                Toast.makeText(this,"reset_maxscene",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_setting:
+                Toast.makeText(this,"setting",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_help:
+                Toast.makeText(this,"help",Toast.LENGTH_SHORT).show();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public void add(){
+
     }
 
 

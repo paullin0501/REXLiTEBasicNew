@@ -47,51 +47,43 @@
 
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/add_device"
         android:layout_width="77dp"
         android:layout_height="75dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/add"
+        android:onClick="add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/firstime_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text='Click "+",add your favorite \n  devices to your shortcut.'
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
-
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="187dp"
-        android:layout_height="224dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        android:layout_width="297dp"
+        android:layout_height="331dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstime_text"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/helparrow" />
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.99"
+        app:srcCompat="@drawable/first_time_helper" />
 
     <!-- </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="220dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:layoutDirection="ltr"
-        app:headerLayout="@layout/nav_header"
         android:clipToPadding="false"
+        android:layoutDirection="ltr"
+        android:visibility="visible"
+        app:headerLayout="@layout/nav_header"
         app:itemIconTint="#F08500"
         app:menu="@menu/menu_main" />
 
