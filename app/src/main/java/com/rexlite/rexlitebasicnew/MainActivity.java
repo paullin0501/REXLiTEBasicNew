@@ -88,6 +88,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
+       /* Button deviceButton = findViewById(R.id.add_device);
+        deviceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent deviceIntent = new Intent(MainActivity.this,DeviceActivity.class);
+            }
+        });*/
+
+
+
       /*  Button fab = findViewById(R.id.add_device);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +112,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivityForResult(intent,REQUEST_LOGIN);
         }
     }
-
+    public void goDevice(View view){
+        Intent deviceIntent = new Intent(this,DeviceActivity.class);
+        startActivity(deviceIntent);
+    }
    /* @Override
     public void onBackPressed() {
        // super.onBackPressed();
