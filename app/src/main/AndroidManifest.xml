@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".DeviceActivity"></activity>
+        <activity android:name=".Device3Activity"></activity>
+        <activity android:name=".Device2Activity" />
+        <activity android:name=".DeviceActivity" />
         <activity android:name=".SlashActivity" />
         <activity android:name=".LoginActivity" />
         <activity

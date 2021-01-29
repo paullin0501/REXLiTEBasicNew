@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 /**
@@ -28,6 +30,9 @@ public class Max3Fragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button btnNavFrag1;
+    private Button btnNavFrag2;
+    private Button btnNavFrag3;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,8 +70,70 @@ public class Max3Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_max3, container, false);
+        View view = inflater.inflate(R.layout.fragment_max3, container, false);
+        btnNavFrag1 = (Button) view.findViewById(R.id.max1);
+        btnNavFrag2 = (Button) view.findViewById(R.id.max2);
+        btnNavFrag3 = (Button) view.findViewById(R.id.max3);
+
+
+        btnNavFrag1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+               // Toast.makeText(getActivity(), "Going to Fragment 1", Toast.LENGTH_SHORT).show();
+
+                ((Device3Activity) getActivity()).setViewPager(0);
+
+            }
+
+        });
+
+        btnNavFrag2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+              //  Toast.makeText(getActivity(), "Going to Fragment 2", Toast.LENGTH_SHORT).show();
+
+                ((Device3Activity) getActivity()).setViewPager(1);
+
+            }
+
+        });
+
+        btnNavFrag3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+              //  Toast.makeText(getActivity(), "Going to Fragment 3", Toast.LENGTH_SHORT).show();
+
+                ((Device3Activity) getActivity()).setViewPager(2);
+
+            }
+
+        });
+
+       /* btnNavSecondActivity.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+                Toast.makeText(getActivity(), "Going to Fragment btnNavSecondActivity", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getActivity(), SecondActivtiy.class);
+                startActivity(intent);
+
+            }
+
+        });*/
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

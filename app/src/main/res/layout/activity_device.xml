@@ -20,11 +20,11 @@
             android:layout_gravity="bottom"
             android:background="#FAF7F7"
             app:tabIndicatorColor="@android:color/darker_gray"
-            app:tabPaddingStart="50dp"
-            app:tabPaddingTop="50dp"
+            app:tabPaddingStart="100dp"/>
+           <!-- app:tabPaddingTop="50dp"
             app:tabPaddingEnd="50dp"
-            app:tabPaddingBottom="50dp"
-            />
+            app:tabPaddingBottom="50dp"-->
+
     </androidx.viewpager.widget.ViewPager>
 
 

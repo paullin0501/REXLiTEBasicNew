@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
     public void goDevice(View view){
-        Intent deviceIntent = new Intent(this,DeviceActivity.class);
+        Intent deviceIntent = new Intent(this,Device3Activity.class);
         startActivity(deviceIntent);
     }
    /* @Override
