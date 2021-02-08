@@ -4,33 +4,23 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Max1Fragment.OnFragmentInteractionListener} interface
+ * {@link AirFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Max1Fragment#newInstance} factory method to
+ * Use the {@link AirFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Max1Fragment extends Fragment {
+public class AirFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -40,19 +30,15 @@ public class Max1Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private Button btnNavFrag1;
-
     private Button btnNavFrag2;
-
     private Button btnNavFrag3;
-
     private  Button btnNavFrag4;
 
     private  Button btnNavFrag5;
 
     private OnFragmentInteractionListener mListener;
-    private List<Device> devices;
 
-    public Max1Fragment() {
+    public AirFragment() {
         // Required empty public constructor
     }
 
@@ -62,11 +48,11 @@ public class Max1Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Max1Fragment.
+     * @return A new instance of fragment AirFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Max1Fragment newInstance(String param1, String param2) {
-        Max1Fragment fragment = new Max1Fragment();
+    public static AirFragment newInstance(String param1, String param2) {
+        AirFragment fragment = new AirFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -81,28 +67,12 @@ public class Max1Fragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_max1, container, false);
-        //Recycler
-        devices = new ArrayList<>();
-        //根據裝置的名稱放入圖片
-        String[] deviceName = new String[] {"bedroom","livingroom"};
-        for(int i = 0; i< devices.size() ; i++){
-            devices.add( new Device(deviceName[i],R.drawable.device_max1));
-        }
-        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.max1_recycler);
-        recyclerView.setHasFixedSize(true);
-        //recyclerView.setLayoutManager();
-
-        //Adapter
-        DeviceAdapter adapter = new DeviceAdapter();
-
-
+        View view = inflater.inflate(R.layout.fragment_air, container, false);
         btnNavFrag1 = (Button) view.findViewById(R.id.max1);
         btnNavFrag2 = (Button) view.findViewById(R.id.max2);
         btnNavFrag3 = (Button) view.findViewById(R.id.max3);
@@ -115,7 +85,7 @@ public class Max1Fragment extends Fragment {
 
             public void onClick(View v) {
 
-               // Toast.makeText(getActivity(), "Going to Fragment 1", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getActivity(), "Going to Fragment 1", Toast.LENGTH_SHORT).show();
                 ((Device3Activity) getActivity()).setViewPager(0);
 
             }
@@ -128,7 +98,7 @@ public class Max1Fragment extends Fragment {
 
             public void onClick(View v) {
 
-              //  Toast.makeText(getActivity(), "Going to Fragment 2", Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(getActivity(), "Going to Fragment 2", Toast.LENGTH_SHORT).show();
                 ((Device3Activity) getActivity()).setViewPager(1);
 
             }
@@ -141,7 +111,7 @@ public class Max1Fragment extends Fragment {
 
             public void onClick(View v) {
 
-               // Toast.makeText(getActivity(), "Going to Fragment 3", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getActivity(), "Going to Fragment 3", Toast.LENGTH_SHORT).show();
                 ((Device3Activity) getActivity()).setViewPager(2);
 
             }
@@ -153,7 +123,7 @@ public class Max1Fragment extends Fragment {
 
             public void onClick(View v) {
 
-                // Toast.makeText(getActivity(), "Going to scene", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getActivity(), "Going to Fragment 3", Toast.LENGTH_SHORT).show();
                 ((Device3Activity) getActivity()).setViewPager(3);
 
             }
@@ -188,9 +158,7 @@ public class Max1Fragment extends Fragment {
         });*/
 
         return view;
-
     }
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -199,7 +167,7 @@ public class Max1Fragment extends Fragment {
         }
     }
 
-  /*  @Override
+/*    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -216,40 +184,18 @@ public class Max1Fragment extends Fragment {
         mListener = null;
     }
 
-
-public interface OnFragmentInteractionListener {
-    // TODO: Update argument type and name
-    void onFragmentInteraction(Uri uri);
-}
-
-public class DeviceAdapter extends  RecyclerView.Adapter<DeviceAdapter.DeviceHolder>{
-    @NonNull
-    @Override
-    public DeviceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = getLayoutInflater().inflate(R.layout.show_device,parent,false);
-        return null;
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
-
-    @Override
-    public void onBindViewHolder(@NonNull DeviceHolder holder, int position) {
-
-    }
-
-    @Override
-    public int getItemCount() {
-        return devices.size();
-    }
-
-    public class DeviceHolder extends RecyclerView.ViewHolder{
-            ImageView deviceImage;
-            TextView nameText;
-            public DeviceHolder(@NonNull View itemView) {
-                super(itemView);
-                deviceImage = itemView.findViewById(R.id.device_icon);
-                nameText = itemView.findViewById(R.id.device_name);
-            }
-        }
-}
-
-
 }

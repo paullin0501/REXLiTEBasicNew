@@ -33,6 +33,9 @@ public class Max2Fragment extends Fragment {
     private Button btnNavFrag1;
     private Button btnNavFrag2;
     private Button btnNavFrag3;
+    private  Button btnNavFrag4;
+
+    private  Button btnNavFrag5;
 
     private OnFragmentInteractionListener mListener;
 
@@ -74,7 +77,8 @@ public class Max2Fragment extends Fragment {
         btnNavFrag1 = (Button) view.findViewById(R.id.max1);
         btnNavFrag2 = (Button) view.findViewById(R.id.max2);
         btnNavFrag3 = (Button) view.findViewById(R.id.max3);
-
+        btnNavFrag4 = (Button) view.findViewById(R.id.scene);
+        btnNavFrag5 = (Button) view.findViewById(R.id.air);
 
         btnNavFrag1.setOnClickListener(new View.OnClickListener() {
 
@@ -82,8 +86,7 @@ public class Max2Fragment extends Fragment {
 
             public void onClick(View v) {
 
-             //   Toast.makeText(getActivity(), "Going to Fragment 1", Toast.LENGTH_SHORT).show();
-
+                // Toast.makeText(getActivity(), "Going to Fragment 1", Toast.LENGTH_SHORT).show();
                 ((Device3Activity) getActivity()).setViewPager(0);
 
             }
@@ -96,8 +99,7 @@ public class Max2Fragment extends Fragment {
 
             public void onClick(View v) {
 
-             //   Toast.makeText(getActivity(), "Going to Fragment 2", Toast.LENGTH_SHORT).show();
-
+                //  Toast.makeText(getActivity(), "Going to Fragment 2", Toast.LENGTH_SHORT).show();
                 ((Device3Activity) getActivity()).setViewPager(1);
 
             }
@@ -110,9 +112,32 @@ public class Max2Fragment extends Fragment {
 
             public void onClick(View v) {
 
-             //   Toast.makeText(getActivity(), "Going to Fragment 3", Toast.LENGTH_SHORT).show();
-
+                // Toast.makeText(getActivity(), "Going to Fragment 3", Toast.LENGTH_SHORT).show();
                 ((Device3Activity) getActivity()).setViewPager(2);
+
+            }
+
+        });
+        btnNavFrag4.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+                // Toast.makeText(getActivity(), "Going to Fragment 3", Toast.LENGTH_SHORT).show();
+                ((Device3Activity) getActivity()).setViewPager(3);
+
+            }
+
+        });
+        btnNavFrag5.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+                // Toast.makeText(getActivity(), "Going to Fragment 3", Toast.LENGTH_SHORT).show();
+                ((Device3Activity) getActivity()).setViewPager(4);
 
             }
 

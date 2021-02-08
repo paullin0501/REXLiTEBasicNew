@@ -41,6 +41,10 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 return new Max2Fragment();
             case 2:
                 return new Max3Fragment();
+            case 3:
+                return new SceneFragment();
+            case 4:
+                return new AirFragment();
             default:
                 return null;
         }
@@ -48,7 +52,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 5;
     }
 
     @Nullable
