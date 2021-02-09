@@ -7,9 +7,10 @@
 
     <ImageView
         android:id="@+id/device_icon"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="125dp"
+        android:layout_height="140dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/device_max1" />
@@ -18,11 +19,11 @@
         android:id="@+id/device_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="95dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@+id/device_icon"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@+id/device_icon"
         app:layout_constraintTop_toTopOf="@+id/device_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>

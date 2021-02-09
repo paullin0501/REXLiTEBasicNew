@@ -4,13 +4,21 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -34,8 +42,13 @@ public class Max2Fragment extends Fragment {
     private Button btnNavFrag2;
     private Button btnNavFrag3;
     private  Button btnNavFrag4;
-
     private  Button btnNavFrag5;
+
+    //設定GridLayoutManager Item之間的設定參數
+    int spanCount = 3; // columns
+    int spacing = 10; // px
+    boolean includeEdge = false;
+    private List<Device> devices;
 
     private OnFragmentInteractionListener mListener;
 
@@ -74,6 +87,26 @@ public class Max2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_max2, container, false);
+        //Recycler
+        devices = new ArrayList<>();
+        //根據裝置的名稱放入圖片
+        String[] deviceName = new String[] {"bedroom","livingroom","kitchen"};
+        devices.add( new Device(deviceName[0],R.drawable.device_max2));
+        devices.add( new Device(deviceName[1],R.drawable.device_max2));
+        devices.add( new Device(deviceName[2],R.drawable.device_max2));
+        /*for(int i = 0; i< devices.size() ; i++){
+            devices.add( new Device(deviceName[i],R.drawable.device_max1));
+        }*/
+        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.max2_recycler);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        //利用addItemDecoration設定UI上裝置間的距離
+        recyclerView.addItemDecoration( new GridSpacingItemDecoration(spanCount,spacing,includeEdge));
+
+        //Adapter
+        Max2Fragment.DeviceAdapter adapter = new Max2Fragment.DeviceAdapter();
+        recyclerView.setAdapter(adapter);
+
         btnNavFrag1 = (Button) view.findViewById(R.id.max1);
         btnNavFrag2 = (Button) view.findViewById(R.id.max2);
         btnNavFrag3 = (Button) view.findViewById(R.id.max3);
@@ -198,5 +231,35 @@ public class Max2Fragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+    public class DeviceAdapter extends  RecyclerView.Adapter<Max2Fragment.DeviceAdapter.DeviceHolder>{
+        @NonNull
+        @Override
+        public Max2Fragment.DeviceAdapter.DeviceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = getLayoutInflater().inflate(R.layout.show_device,parent,false);
+            return new Max2Fragment.DeviceAdapter.DeviceHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull Max2Fragment.DeviceAdapter.DeviceHolder holder, int position) {
+            Device device = devices.get(position);
+            holder.nameText.setText(device.getDeviceName());
+            holder.deviceImage.setImageResource(device.getDeviceIcon());
+        }
+
+        @Override
+        public int getItemCount() {
+            return devices.size();
+        }
+
+        public class DeviceHolder extends RecyclerView.ViewHolder{
+            ImageView deviceImage;
+            TextView nameText;
+            public DeviceHolder(@NonNull View itemView) {
+                super(itemView);
+                deviceImage = itemView.findViewById(R.id.device_icon);
+                nameText = itemView.findViewById(R.id.device_name);
+            }
+        }
     }
 }

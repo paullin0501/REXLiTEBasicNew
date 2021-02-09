@@ -1,13 +1,11 @@
 package com.rexlite.rexlitebasicnew;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -16,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +45,11 @@ public class Max1Fragment extends Fragment {
     private  Button btnNavFrag4;
 
     private  Button btnNavFrag5;
+
+    //設定GridLayoutManager Item之間的設定參數
+    int spanCount = 3; // columns
+    int spacing = 10; // px
+    boolean includeEdge = false;
 
     private OnFragmentInteractionListener mListener;
     private List<Device> devices;
@@ -91,16 +93,23 @@ public class Max1Fragment extends Fragment {
         //Recycler
         devices = new ArrayList<>();
         //根據裝置的名稱放入圖片
-        String[] deviceName = new String[] {"bedroom","livingroom"};
-        for(int i = 0; i< devices.size() ; i++){
+        String[] deviceName = new String[] {"bedroom","livingroom","kitchen","bedroom2"};
+        devices.add( new Device(deviceName[0],R.drawable.device_max1));
+        devices.add( new Device(deviceName[1],R.drawable.device_max1));
+        devices.add( new Device(deviceName[2],R.drawable.device_max1));
+        devices.add( new Device(deviceName[3],R.drawable.device_max1));
+        /*for(int i = 0; i< devices.size() ; i++){
             devices.add( new Device(deviceName[i],R.drawable.device_max1));
-        }
+        }*/
         RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.max1_recycler);
         recyclerView.setHasFixedSize(true);
-        //recyclerView.setLayoutManager();
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        //利用addItemDecoration設定UI上裝置間的距離
+        recyclerView.addItemDecoration( new GridSpacingItemDecoration(spanCount,spacing,includeEdge));
 
         //Adapter
         DeviceAdapter adapter = new DeviceAdapter();
+        recyclerView.setAdapter(adapter);
 
 
         btnNavFrag1 = (Button) view.findViewById(R.id.max1);
@@ -108,6 +117,7 @@ public class Max1Fragment extends Fragment {
         btnNavFrag3 = (Button) view.findViewById(R.id.max3);
         btnNavFrag4 = (Button) view.findViewById(R.id.scene);
         btnNavFrag5 = (Button) view.findViewById(R.id.air);
+
 
         btnNavFrag1.setOnClickListener(new View.OnClickListener() {
 
@@ -222,25 +232,27 @@ public interface OnFragmentInteractionListener {
     void onFragmentInteraction(Uri uri);
 }
 
-public class DeviceAdapter extends  RecyclerView.Adapter<DeviceAdapter.DeviceHolder>{
-    @NonNull
-    @Override
-    public DeviceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = getLayoutInflater().inflate(R.layout.show_device,parent,false);
-        return null;
-    }
+    public class DeviceAdapter extends  RecyclerView.Adapter<DeviceAdapter.DeviceHolder>{
+        @NonNull
+        @Override
+        public DeviceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = getLayoutInflater().inflate(R.layout.show_device,parent,false);
+            return new DeviceHolder(view);
+        }
 
-    @Override
-    public void onBindViewHolder(@NonNull DeviceHolder holder, int position) {
+        @Override
+        public void onBindViewHolder(@NonNull DeviceHolder holder, int position) {
+            Device device = devices.get(position);
+            holder.nameText.setText(device.getDeviceName());
+            holder.deviceImage.setImageResource(device.getDeviceIcon());
+        }
 
-    }
+        @Override
+        public int getItemCount() {
+            return devices.size();
+        }
 
-    @Override
-    public int getItemCount() {
-        return devices.size();
-    }
-
-    public class DeviceHolder extends RecyclerView.ViewHolder{
+        public class DeviceHolder extends RecyclerView.ViewHolder{
             ImageView deviceImage;
             TextView nameText;
             public DeviceHolder(@NonNull View itemView) {
@@ -249,7 +261,7 @@ public class DeviceAdapter extends  RecyclerView.Adapter<DeviceAdapter.DeviceHol
                 nameText = itemView.findViewById(R.id.device_name);
             }
         }
-}
+    }
 
 
 }
