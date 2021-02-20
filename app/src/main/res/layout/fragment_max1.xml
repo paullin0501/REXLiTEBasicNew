@@ -64,7 +64,7 @@
         app:layout_constraintStart_toEndOf="@+id/scene" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/max1_recycler"
+        android:id="@+id/scene_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"

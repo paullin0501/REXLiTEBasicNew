@@ -83,9 +83,11 @@
         android:clipToPadding="false"
         android:layoutDirection="ltr"
         android:visibility="visible"
-        app:headerLayout="@layout/nav_header"
+
         app:itemIconTint="#F08500"
         app:menu="@menu/menu_main" />
+    <!--Hi max!
+    app:headerLayout="@layout/nav_header"-->
 
 app:insetForeground="@android:color/transparent"
 app:menu="@menu/menu_main" />

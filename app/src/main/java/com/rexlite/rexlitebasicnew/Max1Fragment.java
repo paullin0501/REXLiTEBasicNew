@@ -92,16 +92,8 @@ public class Max1Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_max1, container, false);
         //Recycler
         devices = new ArrayList<>();
-        //根據裝置的名稱放入圖片
-        String[] deviceName = new String[] {"bedroom","livingroom","kitchen","bedroom2"};
-        devices.add( new Device(deviceName[0],R.drawable.device_max1));
-        devices.add( new Device(deviceName[1],R.drawable.device_max1));
-        devices.add( new Device(deviceName[2],R.drawable.device_max1));
-        devices.add( new Device(deviceName[3],R.drawable.device_max1));
-        /*for(int i = 0; i< devices.size() ; i++){
-            devices.add( new Device(deviceName[i],R.drawable.device_max1));
-        }*/
-        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.max1_recycler);
+        setupDevice();
+        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.scene_recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),3));
         //利用addItemDecoration設定UI上裝置間的距離
@@ -200,6 +192,18 @@ public class Max1Fragment extends Fragment {
         return view;
 
     }
+    //根據裝置的名稱放入圖片
+    private void setupDevice() {
+
+        String[] deviceName = new String[] {"bedroom","livingroom","kitchen","bedroom2"};
+        devices.add( new Device(deviceName[0],R.drawable.device_max1));
+        devices.add( new Device(deviceName[1],R.drawable.device_max1));
+        devices.add( new Device(deviceName[2],R.drawable.device_max1));
+        devices.add( new Device(deviceName[3],R.drawable.device_max1));
+        /*for(int i = 0; i< devices.size() ; i++){
+            devices.add( new Device(deviceName[i],R.drawable.device_max1));
+        }*/
+    }
 
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -242,9 +246,15 @@ public interface OnFragmentInteractionListener {
 
         @Override
         public void onBindViewHolder(@NonNull DeviceHolder holder, int position) {
-            Device device = devices.get(position);
+            final Device device = devices.get(position);
             holder.nameText.setText(device.getDeviceName());
             holder.deviceImage.setImageResource(device.getDeviceIcon());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemClicked(device);
+                }
+            });
         }
 
         @Override
@@ -261,6 +271,9 @@ public interface OnFragmentInteractionListener {
                 nameText = itemView.findViewById(R.id.device_name);
             }
         }
+    }
+
+    private void itemClicked(Device device) {
     }
 
 
