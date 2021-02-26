@@ -86,7 +86,7 @@
 
         app:itemIconTint="#F08500"
         app:menu="@menu/menu_main" />
-    <!--Hi max!
+    <!--Hi max!選單頂部畫面
     app:headerLayout="@layout/nav_header"-->
 
 app:insetForeground="@android:color/transparent"

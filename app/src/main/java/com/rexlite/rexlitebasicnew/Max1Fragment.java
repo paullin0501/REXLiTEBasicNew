@@ -1,5 +1,6 @@
 package com.rexlite.rexlitebasicnew;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -274,6 +275,8 @@ public interface OnFragmentInteractionListener {
     }
 
     private void itemClicked(Device device) {
+        Intent intent = new Intent(getActivity(),SceneSettingActivity.class);
+        startActivity(intent);
     }
 
 

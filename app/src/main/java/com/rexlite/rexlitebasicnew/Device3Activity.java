@@ -12,7 +12,6 @@ import android.widget.RadioGroup;
 
 public class Device3Activity extends AppCompatActivity {
     private ViewPager viewPager;
-    private FragmentTransaction transaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

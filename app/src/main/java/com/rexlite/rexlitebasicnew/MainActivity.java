@@ -139,10 +139,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_user_profile:
+            /*case R.id.action_user_profile:
                 Toast.makeText(this,"user_profile",Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "onNavigationItemSelected: ");
-                break;
+                break;*/
             case R.id.action_device_search:
                 Toast.makeText(this,"device_search",Toast.LENGTH_SHORT).show();
                 break;
@@ -158,9 +158,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.action_setting:
                 Toast.makeText(this,"setting",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.action_help:
+           /* case R.id.action_help:
                 Toast.makeText(this,"help",Toast.LENGTH_SHORT).show();
-                break;
+                break;*/
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

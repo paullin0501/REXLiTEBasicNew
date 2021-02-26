@@ -3,13 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     tools:showIn = "navigation_view"
     <group android:checkableBehavior="single">
-        <item
+        <!--<item
             android:id="@+id/action_user_profile"
             android:name="android:actionMenuTextColor"
             android:checkable="false"
             android:icon="@drawable/profile"
             android:title="User profile"
-            android:visible="true" />
+            android:visible="true" />-->
         <item
             android:id="@+id/action_device_search"
             android:checkable="false"
@@ -35,11 +35,11 @@
             android:checkable="false"
             android:icon="@drawable/setting"
             android:title="Setting" />
-        <item
+        <!--<item
             android:id="@+id/action_help"
             android:checkable="false"
             android:icon="@drawable/question"
-            android:title="Help" />
+            android:title="Help" />-->
     </group>
 
 

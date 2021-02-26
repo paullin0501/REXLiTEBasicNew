@@ -14,7 +14,22 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
-
+    <integer-array name="scene_images">
+        <item>@drawable/scene1</item>
+        <item>@drawable/scene2</item>
+        <item>@drawable/scene3</item>
+        <item>@drawable/scene4</item>
+        <item>@drawable/scene5</item>
+        <item>@drawable/scene6</item>
+    </integer-array>
+    <integer-array name="sceneOn_images">
+        <item>@drawable/scene1_on</item>
+        <item>@drawable/scene2_on</item>
+        <item>@drawable/scene3_on</item>
+        <item>@drawable/scene4_on</item>
+        <item>@drawable/scene5_on</item>
+        <item>@drawable/scene6_on</item>
+    </integer-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
