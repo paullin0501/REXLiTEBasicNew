@@ -275,7 +275,7 @@ public interface OnFragmentInteractionListener {
     }
 
     private void itemClicked(Device device) {
-        Intent intent = new Intent(getActivity(),SceneSettingActivity.class);
+        Intent intent = new Intent(getActivity(),Max1SettingActivity.class);
         startActivity(intent);
     }
 
