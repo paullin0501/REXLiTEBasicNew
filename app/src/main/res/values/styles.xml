@@ -9,6 +9,13 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+
+
+    <style name="Button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundColor">@color/colorPrimary</item>
+
+    </style>
+
     <style name="MaterialTheme" parent="Theme.MaterialComponents">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
