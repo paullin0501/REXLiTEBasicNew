@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<!--    <item android:id="@android:id/background"-->
+<!--    android:drawable="#FFFFFF"/>-->
+
+<!--    <item android:id="@android:id/progress" > //進度條的進度值圖片-->
+<!--        <clip> //定義圖檔重複-->
+<!--            <bitmap xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--                android:src="@drawable/progress_icon"-->
+<!--                android:tileMode="repeat"-->
+<!--                android:antialias="true"-->
+<!--                android:dither="false"-->
+<!--                android:filter="false"-->
+<!--                android:gravity="left" />-->
+<!--        </clip>-->
+<!--    </item>-->
+
+      //進度條的進度值圖片，單純定義顏色
+        <item android:state_checked="true" >
+            <clip android:drawable="@drawable/seekbar_gradient" />
+        </item>
+</layer-list>
