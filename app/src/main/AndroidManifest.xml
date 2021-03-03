@@ -14,7 +14,8 @@
         </activity>
         <activity
             android:name=".Max2SettingActivity"
-            android:theme="@style/CustmButtonTheme"></activity>
+            android:theme="@style/CustmButtonTheme">
+        </activity>
         <activity
             android:name=".Max1SettingActivity"
             android:theme="@style/CustmButtonTheme" />

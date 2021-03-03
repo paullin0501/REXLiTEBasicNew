@@ -54,10 +54,16 @@
                 app:layout_constraintTop_toBottomOf="@id/textview" />
 
             <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/seekBar"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/image_light"
-                app:layout_constraintTop_toBottomOf="@id/textview" />
+                app:layout_constraintTop_toBottomOf="@id/textview"
+                android:thumbTint="#FFFFFF"
+                android:progressDrawable="@drawable/seekbar_progress"
+                android:min="0"
+                android:max="1"
+                />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
