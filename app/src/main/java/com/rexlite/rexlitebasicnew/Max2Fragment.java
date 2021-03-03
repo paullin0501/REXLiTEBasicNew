@@ -1,6 +1,7 @@
 package com.rexlite.rexlitebasicnew;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -242,9 +243,15 @@ public class Max2Fragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull Max2Fragment.DeviceAdapter.DeviceHolder holder, int position) {
-            Device device = devices.get(position);
+            final Device device = devices.get(position);
             holder.nameText.setText(device.getDeviceName());
             holder.deviceImage.setImageResource(device.getDeviceIcon());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemClicked(device);
+                }
+            });
         }
 
         @Override
@@ -261,5 +268,10 @@ public class Max2Fragment extends Fragment {
                 nameText = itemView.findViewById(R.id.device_name);
             }
         }
+    }
+    //點擊個別裝置
+    private void itemClicked(Device device) {
+        Intent intent = new Intent(getActivity(),Max2SettingActivity.class);
+        startActivity(intent);
     }
 }

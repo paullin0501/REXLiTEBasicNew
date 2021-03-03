@@ -23,24 +23,14 @@
         app:layout_constraintTop_toBottomOf="@+id/include"
         app:srcCompat="@drawable/max1_head" />
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="149dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:srcCompat="@drawable/ch1" />
-
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="240dp"
-        tools:layout_editor_absoluteX="187dp"
-        tools:layout_editor_absoluteY="477dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="9dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView11">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -49,27 +39,42 @@
                 android:id="@+id/textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
                 android:text="Brightness"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginLeft="40dp"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/image_light"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/light"
                 android:layout_marginLeft="40dp"
-                app:layout_constraintTop_toBottomOf="@id/textview"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:src="@drawable/light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview" />
 
             <androidx.appcompat.widget.AppCompatSeekBar
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/textview"
-                app:layout_constraintStart_toEndOf="@id/image_light"/>
+                app:layout_constraintStart_toEndOf="@id/image_light"
+                app:layout_constraintTop_toBottomOf="@id/textview" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button2"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="135dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="CH1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#F08500"
+        app:cornerRadius="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        app:strokeColor="#F08500" />
 </androidx.constraintlayout.widget.ConstraintLayout>

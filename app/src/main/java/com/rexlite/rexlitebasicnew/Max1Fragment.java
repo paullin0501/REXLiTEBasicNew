@@ -273,7 +273,7 @@ public interface OnFragmentInteractionListener {
             }
         }
     }
-
+    //點擊個別裝置
     private void itemClicked(Device device) {
         Intent intent = new Intent(getActivity(),Max1SettingActivity.class);
         startActivity(intent);
