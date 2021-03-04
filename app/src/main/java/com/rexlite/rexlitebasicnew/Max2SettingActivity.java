@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class Max2SettingActivity extends AppCompatActivity implements View.OnClickListener {
@@ -19,6 +20,8 @@ public class Max2SettingActivity extends AppCompatActivity implements View.OnCli
         //選單設定
         ImageView leftIcon = findViewById(R.id.left_icon);
         TextView title = findViewById(R.id.toolbar_title);
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        final TextView percentText = findViewById(R.id.percent);
 
         leftIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +37,24 @@ public class Max2SettingActivity extends AppCompatActivity implements View.OnCli
         btn[1].setImageResource(R.drawable.ch2_on);
         btn[0].setOnClickListener(this);
         btn[1].setOnClickListener(this);
+
+        //seekbar設定
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                percentText.setText(progress+"%");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
 
     }
@@ -52,4 +73,7 @@ public class Max2SettingActivity extends AppCompatActivity implements View.OnCli
 
         }
     }
+
+
+
 }
