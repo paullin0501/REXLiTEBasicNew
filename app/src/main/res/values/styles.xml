@@ -12,7 +12,7 @@
 
 
     <style name="CustmButtonTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="backgroundColor">#00000000</item>
+        <item name="backgroundColor">#F08500</item>
         <item name="strokeColor">#F08500</item>
         <item name="android:windowFullscreen">true</item>
         <item name="windowNoTitle">true</item>
