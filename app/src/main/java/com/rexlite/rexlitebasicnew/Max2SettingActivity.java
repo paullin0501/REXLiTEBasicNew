@@ -3,16 +3,17 @@ package com.rexlite.rexlitebasicnew;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class Max2SettingActivity extends AppCompatActivity implements View.OnClickListener {
+public class Max2SettingActivity extends AppCompatActivity  {
 
-    private ImageView[] btn = new ImageView[2];
-    private int[] btn_id = {R.id.ch1,R.id.ch2};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,10 @@ public class Max2SettingActivity extends AppCompatActivity implements View.OnCli
         ImageView leftIcon = findViewById(R.id.left_icon);
         TextView title = findViewById(R.id.toolbar_title);
         SeekBar seekBar = findViewById(R.id.seekBar);
+          final Button ch1Button = (Button) findViewById(R.id.button);
+          final Button ch2Button = (Button) findViewById(R.id.button2);
+        ch1Button.setSelected(true);
+
         final TextView percentText = findViewById(R.id.percent);
 
         leftIcon.setOnClickListener(new View.OnClickListener() {
@@ -30,13 +35,7 @@ public class Max2SettingActivity extends AppCompatActivity implements View.OnCli
             }
         });
         title.setText("device name");
-        btn[0] = (ImageView) findViewById(btn_id[0]);
-        btn[1] = (ImageView) findViewById(btn_id[1]);
-        btn[0].setImageResource(R.drawable.ch1_off);
 
-        btn[1].setImageResource(R.drawable.ch2_on);
-        btn[0].setOnClickListener(this);
-        btn[1].setOnClickListener(this);
 
         //seekbar設定
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -55,25 +54,38 @@ public class Max2SettingActivity extends AppCompatActivity implements View.OnCli
 
             }
         });
+        //ch按鍵邏輯設定
+        ch1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ch1Button.setSelected(true);
+                ch2Button.setSelected(false);
+               // Log.d(TAG, "onClick: "+"123");
+            }
+        });
+
+        ch2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ch1Button.setSelected(false);
+                ch2Button.setSelected(true);
+            }
+        });
+
 
 
     }
-    @Override
-    public void onClick(View v) {
+  /*  public void ch1ButtonSelected(View view){
+        ch1Button.setSelected(true);
+        ch2Button.setSelected(false);
+    }
+    public void ch2ButtonSelected(View view){
+        ch1Button.setSelected(false);
+        ch2Button.setSelected(true);
+    }*/
 
-        switch (v.getId()) {
-            case R.id.ch1:
-                btn[0].setImageResource(R.drawable.ch1_on);
-                btn[1].setImageResource(R.drawable.ch2_off);
-                break;
-            case R.id.ch2:
-                btn[0].setImageResource(R.drawable.ch1_off);
-                btn[1].setImageResource(R.drawable.ch2_on);
-                break;
 
-        }
     }
 
 
 
-}

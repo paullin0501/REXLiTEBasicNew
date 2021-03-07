@@ -10,7 +10,6 @@
     </style>
 
 
-
     <style name="CustmButtonTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="backgroundColor">#F08500</item>
         <item name="strokeColor">#F08500</item>
@@ -18,9 +17,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Button" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundColor">@color/colorPrimary</item>
-
+    <style name="Button" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">@drawable/button_text_selector</item>
+        <item name="cornerRadius">25dp</item>
+        <item name="strokeColor">@drawable/button_stroke_selector</item>
     </style>
 
     <style name="MaterialTheme" parent="Theme.MaterialComponents">
