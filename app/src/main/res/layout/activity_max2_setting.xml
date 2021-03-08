@@ -41,12 +41,12 @@ app:layout_constraintTop_toTopOf="parent" />
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/imageView10"
-    app:layout_constraintBottom_toTopOf="@+id/cardview">
+    app:layout_constraintBottom_toTopOf="@+id/scroller">
         <Button
-            android:id="@+id/button"
+            android:id="@+id/ch1_button"
             style="@style/Button"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
+            app:layout_constraintEnd_toStartOf="@+id/ch2_button"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
 
@@ -54,26 +54,33 @@ app:layout_constraintTop_toTopOf="parent" />
     <!--android:translationX="12.5dp"-->
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/ch2_button"
             style="@style/Button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/button"
-            app:layout_constraintTop_toTopOf="@id/button"
-            app:layout_constraintBottom_toBottomOf="@id/button"
-
+            app:layout_constraintStart_toEndOf="@id/ch1_button"
+            app:layout_constraintTop_toTopOf="@id/ch1_button"
+            app:layout_constraintBottom_toBottomOf="@id/ch1_button"
             android:text="CH2" />
     <!--android:translationX="-12.5dp"-->
 </androidx.constraintlayout.widget.ConstraintLayout>
     <!--</com.google.android.material.button.MaterialButtonToggleGroup>-->
-
+<ScrollView
+    android:id="@+id/scroller"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/ch_constranint"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    >
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
         android:layout_width="wrap_content"
-        android:layout_height="240dp"
+        android:layout_height="400dp"
         android:layout_marginTop="9dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ch_constranint">
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -102,7 +109,7 @@ app:layout_constraintTop_toTopOf="parent" />
                 android:layout_marginEnd="8dp"
                 android:text="%"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textColor="#F08500"
+                android:textColor="@color/orange"
                 app:layout_constraintTop_toBottomOf="@id/shortcutButton" />
 
             <ImageView
@@ -142,6 +149,7 @@ app:layout_constraintTop_toTopOf="parent" />
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
             <Button
+                android:id="@+id/expand_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
@@ -156,10 +164,91 @@ app:layout_constraintTop_toTopOf="parent" />
                 app:layout_constraintTop_toBottomOf="@id/image_light"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="16dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/expand_brightness_text"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="Brightness"
+                app:layout_constraintTop_toBottomOf="@+id/expand_button"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="15dp"
+                />
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/expand_button"
+                app:layout_constraintStart_toEndOf="@id/expand_brightness_text"
+
+                android:orientation="horizontal">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@color/white"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/brightnessup_selector"
+                    />
+                <RadioButton
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
+                    android:button="@color/white"
+                    android:layout_marginStart="25dp"
+                    android:background="@drawable/brightnessdown_selector"/>
+            </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/timing_text"
+                android:text="Timing"
+                app:layout_constraintTop_toBottomOf="@+id/expand_brightness_text"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="35dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/setting_timing"
+                android:text="03hrs 10min"
+                app:layout_constraintStart_toEndOf="@+id/timing_text"
+                app:layout_constraintTop_toTopOf="@+id/timing_text"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <TimePicker
+                android:id="@+id/timepicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/timing_text"
+                android:timePickerMode="spinner"/>
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/image_light"
+                app:layout_constraintStart_toStartOf="parent"
+                android:backgroundTint="@color/gray"
+                app:cornerRadius="25dp"
+                android:text="Cancel"
+                android:textAllCaps="false"
+               />
+            <Button
+                android:id="@+id/ok_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/image_light"
+                app:layout_constraintStart_toEndOf="@+id/cancel_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:backgroundTint="@color/orange"
+                app:cornerRadius="25dp"
+                android:text="OK"
+                android:textAllCaps="false"
+               />
 
             <!--android:drawableTop="@drawable/ic_baseline_expand_more_24"-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+</ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

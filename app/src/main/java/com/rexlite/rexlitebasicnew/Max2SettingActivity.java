@@ -3,12 +3,12 @@ package com.rexlite.rexlitebasicnew;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 public class Max2SettingActivity extends AppCompatActivity  {
 
@@ -22,9 +22,21 @@ public class Max2SettingActivity extends AppCompatActivity  {
         ImageView leftIcon = findViewById(R.id.left_icon);
         TextView title = findViewById(R.id.toolbar_title);
         SeekBar seekBar = findViewById(R.id.seekBar);
-          final Button ch1Button = (Button) findViewById(R.id.button);
-          final Button ch2Button = (Button) findViewById(R.id.button2);
+        final Button ch1Button = (Button) findViewById(R.id.ch1_button);
+        final Button ch2Button = (Button) findViewById(R.id.ch2_button);
+        //TimePicker設定
+        final TimePicker timePicker = findViewById(R.id.timepicker);
+        final TextView timeText = findViewById(R.id.setting_timing);
+        timePicker.setIs24HourView(true);
+
         ch1Button.setSelected(true);
+
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                timeText.setText(timePicker.getHour()+"hrs " + timePicker.getMinute()+"min");
+            }
+        });
 
         final TextView percentText = findViewById(R.id.percent);
 

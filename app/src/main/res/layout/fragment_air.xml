@@ -25,7 +25,9 @@
         android:layout_height="80dp"
         android:background="@drawable/max1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/max2"
+        />
 
 
     <Button
@@ -35,7 +37,9 @@
         android:layout_height="80dp"
         android:background="@drawable/max2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/max1" />
+        app:layout_constraintStart_toEndOf="@+id/max1"
+        app:layout_constraintEnd_toStartOf="@+id/max3"
+        />
 
     <Button
         android:id="@+id/max3"
@@ -44,14 +48,17 @@
         android:layout_height="80dp"
         android:background="@drawable/max3"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/max2" />
+        app:layout_constraintStart_toEndOf="@+id/max2"
+        app:layout_constraintEnd_toStartOf="@id/scene"/>
+
     <Button
         android:id="@+id/scene"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/scene"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/max3" />
+        app:layout_constraintStart_toEndOf="@+id/max3"
+        app:layout_constraintEnd_toStartOf="@id/air"/>
 
     <Button
         android:id="@+id/air"
@@ -59,6 +66,7 @@
         android:layout_height="80dp"
         android:background="@drawable/air_selected"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/scene" />
+        app:layout_constraintStart_toEndOf="@+id/scene"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

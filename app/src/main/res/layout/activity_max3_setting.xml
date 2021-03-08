@@ -23,36 +23,40 @@
         app:layout_constraintTop_toBottomOf="@+id/include"
         app:srcCompat="@drawable/max3_head" />
 
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/button_group"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ch_constranint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView10"
-        app:singleSelection="true"
-        android:orientation="horizontal"
-        app:selectionRequired="true"
-        app:checkedButton="@id/button">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10">
+        <Button
+            android:id="@+id/ch1_button"
+            style="@style/Button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ch2_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
-        style="@style/Button"
-        android:text="CH1"
-        />
+            android:text="CH1" />
+        <!--android:translationX="12.5dp"-->
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button2"
-        style="@style/Button"
-        android:text="CH2"
-        />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button3"
-        style="@style/Button"
-        android:text="CH3"
-
-        />
-
-    </com.google.android.material.button.MaterialButtonToggleGroup>
+        <Button
+            android:id="@+id/ch2_button"
+            style="@style/Button"
+            app:layout_constraintEnd_toStartOf="@+id/ch3_button"
+            app:layout_constraintStart_toEndOf="@id/ch1_button"
+            app:layout_constraintTop_toTopOf="@id/ch1_button"
+            app:layout_constraintBottom_toBottomOf="@id/ch1_button"
+            android:text="CH2" />
+        <Button
+            android:id="@+id/ch3_button"
+            style="@style/Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ch2_button"
+            app:layout_constraintTop_toTopOf="@id/ch2_button"
+            app:layout_constraintBottom_toBottomOf="@id/ch2_button"
+            android:text="CH3" />
+        <!--android:translationX="-12.5dp"-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
