@@ -59,4 +59,18 @@
             android:text="CH3" />
         <!--android:translationX="-12.5dp"-->
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <fragment
+        android:id="@+id/fragment_container"
+        android:name="com.rexlite.rexlitebasicnew.CurtainFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ch_constranint"
+        app:layout_constraintVertical_bias="0.124" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

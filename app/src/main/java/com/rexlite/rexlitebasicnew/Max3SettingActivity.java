@@ -1,6 +1,7 @@
 package com.rexlite.rexlitebasicnew;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +11,13 @@ import android.widget.TextView;
 
 public class Max3SettingActivity extends AppCompatActivity {
 
-
+    FragmentTransaction fragmentTransaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_max3_setting);
+
+
         //選單設定
         ImageView leftIcon = findViewById(R.id.left_icon);
         TextView title = findViewById(R.id.toolbar_title);
@@ -28,6 +31,11 @@ public class Max3SettingActivity extends AppCompatActivity {
 
             }
         });
+
+        //控制畫面設定
+        //fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+        //裝置名稱
         title.setText("device name");
         //ch按鍵邏輯設定
         ch1Button.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +44,11 @@ public class Max3SettingActivity extends AppCompatActivity {
                 ch1Button.setSelected(true);
                 ch2Button.setSelected(false);
                 ch3Button.setSelected(false);
-                // Log.d(TAG, "onClick: "+"123");
+                CurtainFragment ch1Frag = new CurtainFragment();
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container,ch1Frag);
+                fragmentTransaction.commit();
+
             }
         });
 
@@ -46,6 +58,11 @@ public class Max3SettingActivity extends AppCompatActivity {
                 ch1Button.setSelected(false);
                 ch2Button.setSelected(true);
                 ch3Button.setSelected(false);
+                RelayFragment ch2Frag = new RelayFragment();
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container,ch2Frag);
+                fragmentTransaction.commit();
+
             }
         });
         ch3Button.setOnClickListener(new View.OnClickListener() {
