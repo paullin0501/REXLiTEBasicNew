@@ -3,6 +3,7 @@ package com.rexlite.rexlitebasicnew;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.transition.TransitionManager;
 
@@ -15,10 +16,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-public class Max2SettingActivity extends AppCompatActivity  {
+public class Max2SettingActivity extends AppCompatActivity {
 
-
-
+    FragmentTransaction fragmentTransaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,39 +26,76 @@ public class Max2SettingActivity extends AppCompatActivity  {
         //選單設定
         ImageView leftIcon = findViewById(R.id.left_icon);
         TextView title = findViewById(R.id.toolbar_title);
-        SeekBar seekBar = findViewById(R.id.seekBar);
+        // SeekBar seekBar = findViewById(R.id.seekBar);
         final Button ch1Button = (Button) findViewById(R.id.ch1_button);
         final Button ch2Button = (Button) findViewById(R.id.ch2_button);
-        //擴充功能
-        final Button hiddenButton = findViewById(R.id.expand_button);
-        final CardView cardView = findViewById(R.id.cardview);
-        final ConstraintLayout hiddenView = findViewById(R.id.hidden_view);
-        ;        //TimePicker設定
-        final TimePicker timePicker = findViewById(R.id.timepicker);
-        final TextView timeText = findViewById(R.id.setting_timing);
-        timePicker.setIs24HourView(true);
 
+        title.setText("device name");
         ch1Button.setSelected(true);
 
-        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
-            @Override
-            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-                timeText.setText(timePicker.getHour()+"hrs " + timePicker.getMinute()+"min");
-            }
-        });
 
-        final TextView percentText = findViewById(R.id.percent);
-
+        //返回按鍵
         leftIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-        title.setText("device name");
 
 
-        //seekbar設定
+        //ch按鍵邏輯設定
+        ch1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ch1Button.setSelected(true);
+                ch2Button.setSelected(false);
+                ColorTemperatureFragment ch1Frag = new ColorTemperatureFragment();
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container,ch1Frag);
+                fragmentTransaction.commit();
+            }
+        });
+
+        ch2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ch1Button.setSelected(false);
+                ch2Button.setSelected(true);
+                CurtainFragment ch2Frag = new CurtainFragment();
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container,ch2Frag);
+                fragmentTransaction.commit();
+            }
+        });
+
+
+    }
+}
+
+
+       /* //擴充功能
+        final Button hiddenButton = findViewById(R.id.expand_button);
+        final CardView cardView = findViewById(R.id.cardview);
+        final ConstraintLayout hiddenView = findViewById(R.id.hidden_view);
+        //TimePicker設定
+        final TimePicker timePicker = findViewById(R.id.timepicker);
+        final TextView timeText = findViewById(R.id.setting_timing);
+        timePicker.setIs24HourView(true);*/
+
+
+
+       /* timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                timeText.setText(timePicker.getHour()+"hrs   " + timePicker.getMinute()+"min");
+            }
+        });
+
+        final TextView percentText = findViewById(R.id.percent);*/
+
+
+
+       /* //seekbar設定
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -74,26 +111,10 @@ public class Max2SettingActivity extends AppCompatActivity  {
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
-        });
-        //ch按鍵邏輯設定
-        ch1Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ch1Button.setSelected(true);
-                ch2Button.setSelected(false);
-               // Log.d(TAG, "onClick: "+"123");
-            }
-        });
+        });*/
 
-        ch2Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ch1Button.setSelected(false);
-                ch2Button.setSelected(true);
-            }
-        });
 
-    //卡片擴充按鍵
+    /*//卡片擴充按鍵
         hiddenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,7 +145,7 @@ public class Max2SettingActivity extends AppCompatActivity  {
             }
         });
 
-    }
+    }*/
   /*  public void ch1ButtonSelected(View view){
         ch1Button.setSelected(true);
         ch2Button.setSelected(false);
@@ -135,7 +156,7 @@ public class Max2SettingActivity extends AppCompatActivity  {
     }*/
 
 
-    }
+
 
 
 

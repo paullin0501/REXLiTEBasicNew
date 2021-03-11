@@ -44,7 +44,7 @@ public class Max3SettingActivity extends AppCompatActivity {
                 ch1Button.setSelected(true);
                 ch2Button.setSelected(false);
                 ch3Button.setSelected(false);
-                CurtainFragment ch1Frag = new CurtainFragment();
+                BrightnessFragment ch1Frag = new BrightnessFragment();
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container,ch1Frag);
                 fragmentTransaction.commit();
@@ -71,6 +71,10 @@ public class Max3SettingActivity extends AppCompatActivity {
                 ch1Button.setSelected(false);
                 ch2Button.setSelected(false);
                 ch3Button.setSelected(true);
+                CurtainFragment ch3Frag = new CurtainFragment();
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container,ch3Frag);
+                fragmentTransaction.commit();
             }
         });
 
