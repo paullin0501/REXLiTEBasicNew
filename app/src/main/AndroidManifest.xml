@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Max3SettingActivity"
-            android:theme="@style/CustmButtonTheme">
-        </activity>
+        <activity android:name=".DeviceSearchResultActivity"></activity>
+        <activity
+            android:name=".Max3SettingActivity"
+            android:theme="@style/CustmButtonTheme"></activity>
         <activity
             android:name=".Max2SettingActivity"
-            android:theme="@style/CustmButtonTheme">
-        </activity>
+            android:theme="@style/CustmButtonTheme"></activity>
         <activity
             android:name=".Max1SettingActivity"
             android:theme="@style/CustmButtonTheme" />

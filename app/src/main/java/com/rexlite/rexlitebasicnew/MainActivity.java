@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 
 import java.lang.reflect.Method;
+import java.util.logging.LogRecord;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
+
        /* Button deviceButton = findViewById(R.id.add_device);
         deviceButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,13 +141,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //功能選單實作
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        //DeviceScan功能
+         final LoadingDialog loadingDialog = new LoadingDialog(MainActivity.this);
         switch (item.getItemId()){
             /*case R.id.action_user_profile:
                 Toast.makeText(this,"user_profile",Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "onNavigationItemSelected: ");
                 break;*/
             case R.id.action_device_search:
-                Toast.makeText(this,"device_search",Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this,"device_search",Toast.LENGTH_SHORT).show();
+                loadingDialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+
+                        loadingDialog.disnissDialog();
+                        startActivity(new Intent(MainActivity.this, DeviceSearchResultActivity.class));
+
+
+                    }
+                },3000);
+
                 break;
             case R.id.action_device_rescan:
                 Toast.makeText(this,"device_rescan",Toast.LENGTH_SHORT).show();
