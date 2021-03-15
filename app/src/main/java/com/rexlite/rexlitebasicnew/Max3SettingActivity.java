@@ -17,6 +17,11 @@ public class Max3SettingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_max3_setting);
 
+        //預設畫面
+        BrightnessFragment ch1Frag = new BrightnessFragment();
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container,ch1Frag);
+        fragmentTransaction.commit();
 
         //選單設定
         ImageView leftIcon = findViewById(R.id.left_icon);
